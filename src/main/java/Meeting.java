@@ -31,6 +31,5 @@ public class Meeting extends Task {
         } else {
             return false;
         }
-
     }
 }
