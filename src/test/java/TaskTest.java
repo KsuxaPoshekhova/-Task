@@ -14,24 +14,31 @@ public class TaskTest {
     public void testTask2() {
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-        boolean actual = simpleTask.matches("бабушке");
+        boolean actual = simpleTask.matches("4552");
         Assertions.assertFalse(actual);
     }
 
     @Test
     public void testTaskEpic1() {
-        Epic epic = new Epic(55, new String[]{"Яйца"});
+        Epic epic = new Epic(55, new String[]{"13%№№№%:%:?:**?*"});
 
-        boolean actual = epic.matches("Яйца");
+        boolean actual = epic.matches("13%№№№%:%:?:**?*");
         Assertions.assertTrue(actual);
     }
 
     @Test
     public void testTaskEpic2() {
-        Epic epic = new Epic(55, new String[]{"Молоко"});
+        Epic epic = new Epic(55, new String[]{"Яйца"});
 
-        boolean actual = epic.matches("Горчица");
+        boolean actual = epic.matches("Eggs");
         Assertions.assertFalse(actual);
+    }
+    @Test
+    public void testTaskEpic9() {
+        Epic epic = new Epic(55, new String[]{"                 "});
+
+        boolean actual = epic.matches("               ");
+        Assertions.assertTrue(actual) ;
     }
     @Test
     public void testTaskMeeting () {
@@ -62,7 +69,7 @@ public class TaskTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда") ;
 
-        boolean actual= meeting.matches( "После завтрака");
+        boolean actual= meeting.matches( "Prilochenie NetoBanka");
         boolean expected = false ;
         Assertions.assertEquals(expected ,actual ) ;
     }
@@ -73,7 +80,7 @@ public class TaskTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда") ;
 
-        boolean actual= meeting.matches( "После обеда");
+        boolean actual= meeting.matches( "84гругар&897ujk.../");
         boolean expected = false ;
         Assertions.assertEquals(expected ,actual ) ;
     }
@@ -84,27 +91,34 @@ public class TaskTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда") ;
 
-        boolean actual= meeting.matches( "В среду после обеда ");
+        boolean actual= meeting.matches( "ВО ВТОРНИК ПОСЛЕ ОБЕДА ");
         boolean expected = false  ;
         Assertions.assertEquals(expected ,actual ) ;
     }
     @Test
     public void testTaskMeeting6 () {
         Meeting meeting = new Meeting(  555,
-                "Выкатка 3й версии приложения",
+                "Жанна Д`арк",
                 "Приложение НетоБанка",
                 "Во вторник после обеда") ;
 
-        boolean actual= meeting.matches( "Сходить на тренировку");
-        boolean expected = false ;
+        boolean actual= meeting.matches( "Жанна Д`арк");
+        boolean expected = true  ;
         Assertions.assertEquals(expected ,actual ) ;
     }
     @Test
     public void testTaskEpic7() {
-        Epic epic = new Epic(55, new String[]{"Яйца"});
+        Epic epic = new Epic(55, new String[]{"Алена"});
 
-        boolean actual = epic.matches("Молоко");
+        boolean actual = epic.matches("Алёна");
         Assertions.assertFalse(actual) ;
+    }
+    @Test
+    public void testTaskEpic8() {
+        Epic epic = new Epic(55, new String[]{"Иосиф- Йося"});
+
+        boolean actual = epic.matches("Иосиф- Йося");
+        Assertions.assertTrue(actual) ;
     }
 }
 

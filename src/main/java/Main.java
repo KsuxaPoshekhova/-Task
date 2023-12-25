@@ -1,3 +1,2 @@
-public class Main w
-{
+public class Main {
 }
